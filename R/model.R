@@ -307,9 +307,6 @@ train_model <- function(instances, n_topics,
         ),
         doc_topics=mallet::mallet.doc.topics(trainer,
             smoothed=FALSE, normalized=FALSE),
-        metadata=match_metadata(metadata,
-            rJava::.jcall(trainer, "[S", "getDocumentNames")
-        )
     )
 
     # assign metadata; issue warning if it doesn't match
@@ -1308,4 +1305,3 @@ read_state_nobigmem <- function (simplified_state_file) {
         topic_words=topic_words
     )
 }
-
